@@ -1,1 +1,2 @@
-# SQL-Zoo-exercises-
+
+Tutorial exercises from http://sqlzoo.net/
