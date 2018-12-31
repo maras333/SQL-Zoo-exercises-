@@ -11,3 +11,11 @@ GROUP BY g1.last_name, g1.first_name, temp_b_g.first_name
 -- 12. Check out per floor. The first digit of the room number indicates the floor –
 -- e.g. room 201 is on the 2nd floor. For each day of the week beginning 2016-11-14 show
 -- how many rooms are being vacated that day by floor number. Show all days in the correct order.
+
+
+-- 13. Free rooms? List the rooms that are free on the day 25th Nov 2016.
+SELECT DISTINCT b2.room_no FROM booking b2
+WHERE b2.room_no NOT IN (
+  SELECT DISTINCT b1.room_no FROM booking b1
+  WHERE b1.booking_date <= '2016-11-25' AND DATE_ADD(b1.booking_date, INTERVAL b1.nights DAY) > '2016-11-25'
+)
